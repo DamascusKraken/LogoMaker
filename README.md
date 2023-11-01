@@ -28,6 +28,9 @@ Examples:
  ![Circle](./develop/examples/logoCircle.svg) ![Square](./develop/examples/logoSquare.svg)  
  ![Triangle](./develop/examples/logotriangle.svg)  
 
+![ClipExample](./develop/examples/LOGOMAKER.gif)
+
+
  ## Credits
 
  W3Schools - SVG Tutorials  
