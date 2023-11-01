@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateSvg = require('./develop/lib/generateSvg');
+const shapes = require('./develop/lib/shapes');
 
 const questions = [
     {
@@ -33,15 +33,44 @@ function initialize()
 {
     inquirer.prompt(questions)
     .then(function (data){
-        writeToFile("./develop/examples/logo.svg", generateSvg.generateSvg(data));
+       let shapeFormatting;
+        if( `${data.shape}` == "circle")
+        {
+        
+      let circle = new shapes.Circle(data.text, data.textColor, data.shapeColor);
+         shapeFormatting = circle.format(data);
+         writeToFile("./develop/examples/logoCircle.svg", shapeFormatting);
         console.log(data);
     
+      
+        }
+        else if (`${data.shape}` == "square")
+        {
+            let square = new shapes.Square(data.text, data.textColor, data.shapeColor);
+            shapeFormatting = square.format(data);
+            writeToFile("./develop/examples/logoSquare.svg", shapeFormatting);
+        console.log(data);
+            console.log(data);
+        }
+            else if(`${data.shape}` == "triangle")
+        {
+            let triangle = new shapes.Triangle(data.text, data.textColor, data.shapeColor);
+            shapeFormatting = triangle.format(data);
+            writeToFile("./develop/examples/logoTriangle.svg", shapeFormatting);
+            console.log(data);
+            
+        }
 
-    });
-};
+        
+        
 
-function writeToFile(fileName, data){
-    fs.writeFile(fileName, data, err => {
+        });
+    };
+
+
+
+function writeToFile(fileName, shapeFormatting){
+    fs.writeFile(fileName, shapeFormatting, err => {
         err? console.log(err) : console.log("Generated logo.svg");
     })
 }
