@@ -1,42 +1,49 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
+const generateSvg = require('./develop/lib/generateSvg');
 
-const questionShape  = [
+const questions = [
+    {
+        type: 'input',
+        name: 'text',
+        message: 'Enter text you want on your Logo.',
+        default: 'SVG',
+    },
+    {
+        type: 'input', 
+        name: 'textColor',
+        message: 'What color would you like the text?',
+        default: 'black'
+    },
     {
         type: 'list',
         name: 'shape',
-        message: 'Select the shapeyou would like your Logo?',
+        message: 'Select the shape you would like your Logo?',
         choices: ['circle', 'square', 'triangle']
+    },
+    {
+        type: 'input',
+        name: 'shapeColor',
+        message: 'What color would you like the Shape?',
+        default: 'red'
     }
 ];
 
-function getUserShape(){
-    inquirer.prompt(questionShape)
-    .then(function(userInput) 
-    {
-        if(userInput.shape == 'circle' )
-        {
-            createCircle
-        }
-    }
-)};
+function initialize()
+{
+    inquirer.prompt(questions)
+    .then(function (data){
+        writeToFile("./develop/examples/logo.svg", generateSvg.generateSvg(data));
+        console.log(data);
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function shapes(fill, logoText, textColor){
-    this.fill = fill;
-    this.logoText = logoText;
-    this.textColor = textColor;
+    });
 };
+
+function writeToFile(fileName, data){
+    fs.writeFile(fileName, data, err => {
+        err? console.log(err) : console.log("Generated logo.svg");
+    })
+}
+
+initialize();
