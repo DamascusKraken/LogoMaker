@@ -37,37 +37,34 @@ function initialize()
         if( `${data.shape}` == "circle")
         {
         
-      let circle = new shapes.Circle(data.text, data.textColor, data.shapeColor);
-         shapeFormatting = circle.format(data);
-         writeToFile("./develop/examples/logoCircle.svg", shapeFormatting);
-        console.log(data);
-    
-      
+            let circle = new shapes.Circle(data.text, data.textColor, data.shapeColor);
+                shapeFormatting = circle.format(data);
+
+            writeToFile("./develop/examples/logoCircle.svg", shapeFormatting);
+            console.log();
+            console.log(data);
         }
+        
         else if (`${data.shape}` == "square")
         {
             let square = new shapes.Square(data.text, data.textColor, data.shapeColor);
-            shapeFormatting = square.format(data);
+                shapeFormatting = square.format(data);
+
             writeToFile("./develop/examples/logoSquare.svg", shapeFormatting);
-        console.log(data);
+            console.log();
             console.log(data);
         }
-            else if(`${data.shape}` == "triangle")
+        else if(`${data.shape}` == "triangle")
         {
             let triangle = new shapes.Triangle(data.text, data.textColor, data.shapeColor);
-            shapeFormatting = triangle.format(data);
-            writeToFile("./develop/examples/logoTriangle.svg", shapeFormatting);
-            console.log(data);
+                shapeFormatting = triangle.format(data);
             
+            writeToFile("./develop/examples/logoTriangle.svg", shapeFormatting);
+            console.log();
+            console.log(data);
         }
-
-        
-        
-
-        });
-    };
-
-
+    });
+};
 
 function writeToFile(fileName, shapeFormatting){
     fs.writeFile(fileName, shapeFormatting, err => {
