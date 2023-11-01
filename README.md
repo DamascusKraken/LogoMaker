@@ -26,7 +26,7 @@ Read the questions and select or enter the desired Data.
 Examples:  
   
  ![Circle](./develop/examples/logoCircle.svg) ![Square](./develop/examples/logoSquare.svg)  
- ![Triangle](./develop/examples/logotriangle.svg)   
+ ![Triangle](./develop/examples/logoTriangle.svg)   
 
 
 ![ClipExample](./develop/examples/LOGOMAKER.gif)
